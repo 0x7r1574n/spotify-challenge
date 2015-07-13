@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link href="https://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="js/controller.js"></script>
+        <link href="css/app.css" type="text/css" />
+        <title>Encode your words in a playlist</title>
+    </head>
+    <body ng-controller="mainController" ng-app="spotifyApp">
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Encode Your Words in a Playlist</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Generator <span class="sr-only">(current)</span></a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+        <div style="margin: 3%;">
+            <form role="search" name="trackSearch">
+                <div class="form-group">
+                    <input class="form-control animated fadeIn" name="search" ng-minlength=2 placeholder="Type your secret words here..." ng-model="words" ng-change="getData()" autocomplete="off" required/><br/>
+                    <p class="help-block" ng-show="trackSearch.search.$error.minlength" style="color: red;">Enter 2+ characters</p>
+                </div>
+            </form>
+            <div class="container-fixed" ng-show="songs.length > 0">
+                <p class="help-block" style="color: lightseagreen; font-weight: bold;">Magic happens! Here is your generated playlist:</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <tr>
+                            <th>Preview</th>
+                            <th>Song</th>
+                            <th>Artist</th>
+                            <th>Album</th>
+                            <th>Duration</th>
+                        </tr>
+                        <tr ng-repeat="song in songs">
+                            <td><button class="btn button-play" ng-class="track.preview_url == currentSong ? 'playing' : ''" ng-click="play(song.preview_url)"><span class="glyphicon glyphicon-play"></span></button></td>
+                            <td>{{song.name}}</td>
+                            <td>{{getArtists(song.artists)}}</td>
+                            <td><img src="{{song.album.images[2].url}}" alt="song.album.name" class="img"/>{{song.album.name}}</td>
+                            <td>{{msToMinuteSecond(song.duration_ms)}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

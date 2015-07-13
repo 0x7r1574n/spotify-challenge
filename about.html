@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv= "X-UA-Compatible" content ="IE=edge">
+    <meta name="viewport" content = "width=device-width,initial-scale=1">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/darkly/bootstrap.min.css">
+    <title>Encode your words in a playlist</title>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Encode Your Words in a Playlist</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Generator</a></li>
+                <li class="active"><a href="about.html">About <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>About</h1>
+        <p>This is an interactive web application that utilizes Spotify's RESTful API's search endpoint.</p>
+        <p>Users are prompted to enter a sentence with more than 2 characters, and the application will search for each word and randomly select a related track and display its information on the fly.</p>
+        <p>Consumed resources for this application:</p>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="https://developer.spotify.com/web-api/">Spotify's Web API</a> for track data.</li>
+            <li class="list-group-item"><a href="https://angularjs.org/">Angular JS</a> for the interactive framework.</li>
+            <li class="list-group-item">And of course <a href="https://jquery.com/">jQuery</a> and <a href="http://getbootstrap.com/">Bootstrap</a> for the foundation.</li>
+        </ul>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted" style="text-align: right; font-size: 12pt;">Created by <a href="https://www.facebook.com/tristan.shi">Cechi Shi</a></p>
+            </div>
+        </footer>
+    </div>
+</div>
+</div>
+</body>
+</html>
